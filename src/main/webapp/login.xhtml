@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="css/estilo.css"/>
+    </head>
+    <body>
+        <div class="login">
+            <h:form rendered="#{cls_login.visible_login}">
+                <h1>Login</h1>
+                <h:inputText id="usuario"  a:placeholder="Usuario" required="required" value="#{cls_login.usuario}" />
+                <br></br>
+                <h:inputSecret id="contrasenia" a:placeholder="Contrasenia" required="required" value="#{cls_login.contrasenia}"/>
+                <br></br>
+                <h:commandButton id="login" value="Ingresar" action="#{cls_login.ingresar}">  </h:commandButton>
+                <br></br><br></br>
+                <h:outputText id="mensaje" value="#{cls_login.mensaje}"/>
+            </h:form>
+            <h:form rendered="#{cls_login.visible_menu}">
+                <h1>Menú Principal</h1>
+                <h:commandLink action="Nuevo_Préstamo">Nuevo Préstamo</h:commandLink>
+                <br></br>
+                <h:commandLink action="Pagos">Pagos</h:commandLink>
+                <br></br>
+                <h:commandLink action="Cerrar_día">Cerrar Día</h:commandLink>
+                <br></br>
+                <h:commandLink action="#{cls_login.showLogin()}">Salir</h:commandLink>
+            </h:form>
+        </div>
+
+    </body>
+</html>
